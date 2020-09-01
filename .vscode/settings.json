@@ -1,3 +1,7 @@
 {
-    "python.autoComplete.showAdvancedMembers": false
+    "python.autoComplete.showAdvancedMembers": false,
+    "editor.formatOnSave": true,
+    "prettier.tabWidth": 3,
+    "javascript.format.insertSpaceAfterCommaDelimiter": false,
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": false
 }
