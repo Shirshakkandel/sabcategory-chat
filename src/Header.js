@@ -25,11 +25,11 @@ function Header() {
             {/*Time account */}
          </div>
 
-         <div className="header__search">
+         {/* <div className="header__search">
             <SearchIcon />
             <input type="text" placeholder="Search Item" />
-            {/* help icon */}
-         </div>
+           
+         </div> */}
 
          <div className="header__right">
             <HelpOutlineIcon />
