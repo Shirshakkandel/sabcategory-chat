@@ -18,7 +18,7 @@ function Header() {
             {/*Avatar for logged in user */}
             <Avatar
                className="header__avatar"
-               alt={user?.displayName}
+               alt={user?.displayName }
                src={user?.photoURL}
             />
             <AccessTimeSharp />

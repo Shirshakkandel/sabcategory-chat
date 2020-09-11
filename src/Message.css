@@ -1,23 +1,32 @@
 .message {
    display: flex;
-   align-items: center;
+   align-items: top;
    padding: 20px;
    justify-items: center;
 }
-
 .message>img {
    height: 50px;
    width: 50px;
    object-fit: contain;
    margin-right: 3px;
 }
-
 .message__timestamp {
    color: gray;
    font-weight: 300;
    font-size: 13px;
 }
-
 .message>.message__info>p {
-   margin-top: -20px;
+   margin-top: 0px;
+}
+/* mobile view */
+
+
+@media (max-width: 780px) {
+   .message {
+      padding: 7px;
+   }
+   .message>img {
+      height: 30px;
+      width: 30px;
+   }
 }

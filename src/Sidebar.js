@@ -29,6 +29,8 @@ function Sidebar() {
          );
       });
    }, []);
+
+     //===================================================================================
    return (
       <div className="sidebar">
          <div className="sidebar__header">
@@ -39,7 +41,7 @@ function Sidebar() {
                   {user?.displayName}
                </h3>
             </div>
-            <CreateIcon />
+            {/* <CreateIcon /> */}
          </div>
          {/* <SidebarOption Icon={InsertCommentIcon} title="Threads" />
          <SidebarOption Icon={InboxIcon} title="Mentions & reactions" />
@@ -49,11 +51,8 @@ function Sidebar() {
          <SidebarOption Icon={ExpandLessIcon} title="Show less" /> */}
          <hr />
          <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
-         {/*Connect to db and list all Channel */}
-         {/* {channels.map((channel)=>{
-                <SidebarOption title={channel.name} id={channel.id}/>
-            })} */}
 
+         {/*Connect to db and list all Channel */}
          {channels.map((channel) => (
             <SidebarOption title={channel.name} id={channel.id} />
          ))}
