@@ -3,7 +3,6 @@ import "./Login.css";
 import { Button } from "@material-ui/core";
 import { auth, provider } from "./Firebase";
 import { useStateValue } from "./StateProvider";
-import { actionTypes } from "./reducer";
 
 function Login() {
    const [state, dispatch] = useStateValue();
@@ -13,7 +12,7 @@ function Login() {
          .then((result) => {
             console.log(result);
             dispatch({
-               type: actionTypes.SET_USER,
+               type: "SET_USER",
                user: result.user,
             });
          })
