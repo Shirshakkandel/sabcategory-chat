@@ -3,9 +3,8 @@ import "./SidebarOption.css";
 import { useHistory } from "react-router-dom";
 import db from "./Firebase";
 
-function SidebarOption({ Icon, title, id, addChannelOption }) {
+function SidebarOption({ Icon,title,id,addChannelOption }) {
    const history = useHistory();
-   
    const selectChannel = () => {
       if (id) {
          history.push(`/room/${id}`);
@@ -19,7 +18,6 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
       if (channelName) {
          db.collection("rooms").add({
             name: channelName,
-            
          });
       }
    };
@@ -33,10 +31,10 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
          {Icon ? (
             <h3>{title}</h3>
          ) : (
-            <h3 className="sidebarOption__channel">
-               <span className="sidebarOption__hash">#{title}</span>
-            </h3>
-         )}
+               <h3 className="sidebarOption__channel">
+                  <span className="sidebarOption__hash">#{title}</span>
+               </h3>
+            )}
       </div>
    );
 }

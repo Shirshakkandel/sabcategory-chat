@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React,{ useState,useEffect } from "react";
 import "./sidebar.css";
 import SidebarOption from "./SidebarOption";
 import db from "./Firebase";
@@ -14,9 +14,10 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import AddIcon from "@material-ui/icons/Add";
 import { useStateValue } from "./StateProvider";
 
-function Sidebar() {
-   const [channels, setChannels] = useState([]);
+function Sidebar({ toggle }) {
+   const [channels,setChannels] = useState([]);
    const [{ user }] = useStateValue();
+
 
    useEffect(() => {
       //Run when sidebar component run
@@ -28,11 +29,11 @@ function Sidebar() {
             }))
          );
       });
-   }, []);
+   },[]);
 
-     //===================================================================================
+   //===================================================================================
    return (
-      <div className="sidebar">
+      <div className={`sidebar  ${toggle && "togglesidebar"}`}>
          <div className="sidebar__header">
             <div className="sidebar__info">
                <h2>Sabchat Csit </h2>
@@ -53,10 +54,12 @@ function Sidebar() {
          <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
 
          {/*Connect to db and list all Channel */}
-         {channels.map((channel) => (
-            <SidebarOption title={channel.name} id={channel.id} />
-         ))}
-      </div>
+         {
+            channels.map((channel) => (
+               <SidebarOption title={channel.name} id={channel.id} />
+            ))
+         }
+      </div >
    );
 }
 

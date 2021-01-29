@@ -5,6 +5,18 @@
     border-top: 1px solid #49274b;
     max-width: 280px;
     padding-right: 4px;
+    transform: translateX(-100%);
+}
+
+/* @media(max-width : 768px){
+    .sidebar{
+        flex:.8;
+    }
+ 
+} */
+
+.togglesidebar{
+    transform: translateX(0%);
 }
 
 .sidebar__header {

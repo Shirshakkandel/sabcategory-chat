@@ -3,8 +3,24 @@
    flex-grow: 1;
    overflow-y: scroll;
    padding-bottom: 150px;
+   transition: 0 5 ease;
 }
 
+/* @media(max-width: 768px) {
+   .chat{
+      flex:.6;
+   }
+} */
+
+.library-active{
+    margin-left: 5%;
+}
+
+ @media(max-width: 768px) {
+   .library-active{
+      margin-left: 30%;
+   }
+} 
 .chat__header {
    display: flex;
    align-items: center;
