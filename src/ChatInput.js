@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 import "./ChatInput.css";
 import { Button } from "@material-ui/core";
 import { useStateValue } from "./StateProvider";
 import db from "./Firebase";
 import firebase from "firebase";
 
-function ChatInput({ channelName, channelId }) {
-   const [input, setInput] = useState("");
+function ChatInput({ channelName,channelId }) {
+   const [input,setInput] = useState("");
    const [{ user }] = useStateValue();
    const sendMessage = (e) => {
       e.preventDefault();
@@ -28,7 +28,7 @@ function ChatInput({ channelName, channelId }) {
                onChange={(e) => setInput(e.target.value)}
                placeholder={`Message # ${channelName?.toLowerCase()}`}
             />
-            <Button type="submit" onClick={sendMessage}>
+            <Button type="submit" onClick={sendMessage} disabled={!input}>
                Send
             </Button>
          </form>

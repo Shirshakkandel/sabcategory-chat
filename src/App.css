@@ -5,11 +5,12 @@ body {
 }
 
 .app__body {
+  padding: 20px;
   display: flex;
   height: 100vh;
   transition: all .5s ease;
 }
 
 .library-active{
-    margin-left: 30%;
+    margin-left: 20%;
 }

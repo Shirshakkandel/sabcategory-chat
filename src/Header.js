@@ -22,12 +22,12 @@ function Header({ setToggle,toggle }) {
                alt={user?.displayName}
                src={user?.photoURL}
             />
-            <DehazeIcon onClick={() => setToggle(!toggle)} />
+
 
             <AccessTimeSharp />
          </div>
          <div className="header__right">
-            <HelpOutlineIcon />
+            <DehazeIcon onClick={() => setToggle(!toggle)} />
          </div>
       </div>
    );

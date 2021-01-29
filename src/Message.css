@@ -1,7 +1,7 @@
 .message {
    display: flex;
    align-items: top;
-   padding: 20px;
+   margin: 10px;
    justify-items: center;
 }
 .message>img {
@@ -9,6 +9,8 @@
    width: 50px;
    object-fit: contain;
    margin-right: 3px;
+   border-radius: 50%;
+  margin-top: 8px;
 }
 .message__timestamp {
    color: gray;
@@ -20,10 +22,14 @@
 }
 /* mobile view */
 
+.image{
+   height: 90%;
+   width: 90%;
+}
 
 @media (max-width: 780px) {
    .message {
-      padding: 7px;
+     margin: 20px;
    }
    .message>img {
       height: 30px;

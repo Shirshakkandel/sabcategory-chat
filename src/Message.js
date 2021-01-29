@@ -3,7 +3,7 @@ import "./Message.css";
 import DeleteIcon from '@material-ui/icons/Delete';
 import db from "./Firebase";
 
-function Message({ message,timestamp,user,userImage,displayName,id,roomId }) {
+function Message({ message,timestamp,user,userImage,displayName,id,roomId,image }) {
    const deleteMessage = (id,roomId) => {
       db.collection("rooms/roomId/message/id").delete()
 
@@ -23,6 +23,9 @@ function Message({ message,timestamp,user,userImage,displayName,id,roomId }) {
                </span>
             </h4>
             <p>{message}</p>
+            {image && (
+               <img className="image" src={image} />
+            )}
          </div>
       </div>
    );

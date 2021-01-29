@@ -62,7 +62,7 @@ function App() {
                            </Route>
 
                            <Route path="/">
-                              <h1>Welcome to Csit sabCategory Chat group</h1>
+                              <h1 className={`${toggle && "library-active"}`}>Welcome to Csit sabCategory Chat group</h1>
                            </Route>
                         </Switch>
 

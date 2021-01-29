@@ -62,7 +62,7 @@ function Chat({ toggle }) {
          </div>
 
          <div className="chat__message">
-            {roomMessages.map(({ data: { message,timestamp,user,userImage },id,displayName,roomId }) => (
+            {roomMessages.map(({ data: { message,timestamp,user,userImage,image },id,displayName,roomId }) => (
                <Message
                   message={message}
                   timestamp={timestamp}
@@ -71,6 +71,7 @@ function Chat({ toggle }) {
                   displayName={displayName}
                   id={id}
                   roomId={roomId}
+                  image={image}
                />
             ))}
          </div>
