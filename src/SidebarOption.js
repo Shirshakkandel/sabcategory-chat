@@ -5,6 +5,7 @@ import db from "./Firebase";
 
 function SidebarOption({ Icon,title,id,addChannelOption }) {
    const history = useHistory();
+
    const selectChannel = () => {
       if (id) {
          history.push(`/room/${id}`);
@@ -28,6 +29,7 @@ function SidebarOption({ Icon,title,id,addChannelOption }) {
          onClick={addChannelOption ? addChannel : selectChannel}
       >
          {Icon && <Icon className="sidebarOption__icon" />}
+
          {Icon ? (
             <h3>{title}</h3>
          ) : (

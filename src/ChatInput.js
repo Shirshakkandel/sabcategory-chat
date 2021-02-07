@@ -5,11 +5,14 @@ import { useStateValue } from "./StateProvider";
 import db from "./Firebase";
 import firebase from "firebase";
 
-function ChatInput({ channelName,channelId }) {
+function ChatInput({ channelName,channelId,toggle }) {
    const [input,setInput] = useState("");
    const [{ user }] = useStateValue();
+
+   //Send message function 
    const sendMessage = (e) => {
       e.preventDefault();
+      
       if (channelId) {
          db.collection("rooms").doc(channelId).collection("messages").add({
             message: input,
@@ -19,9 +22,10 @@ function ChatInput({ channelName,channelId }) {
          });
          setInput("");
       }
-   };
+   }
+
    return (
-      <div className="chatInput">
+      <div className="chatInput toggleInput">
          <form>
             <input
                value={input}

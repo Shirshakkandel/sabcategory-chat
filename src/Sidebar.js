@@ -21,9 +21,9 @@ function Sidebar({ toggle }) {
 
    useEffect(() => {
       //Run when sidebar component run
-      db.collection("rooms").onSnapshot((snapshot) => {
+      db.collection("rooms").onSnapshot(snapshot => {
          setChannels(
-            snapshot.docs.map((doc) => ({
+            snapshot.docs.map(doc => ({
                id: doc.id,
                name: doc.data().name,
             }))
@@ -34,32 +34,13 @@ function Sidebar({ toggle }) {
    //===================================================================================
    return (
       <div className={`sidebar  ${toggle && "togglesidebar"}`}>
-         <div className="sidebar__header">
-            <div className="sidebar__info">
-               <h2>Sabchat Csit </h2>
-               <h3>
-                  <FiberManualRecordIcon color="primary" />
-                  {user?.displayName}
-               </h3>
-            </div>
-            {/* <CreateIcon /> */}
-         </div>
-         {/* <SidebarOption Icon={InsertCommentIcon} title="Threads" />
-         <SidebarOption Icon={InboxIcon} title="Mentions & reactions" />
-         <SidebarOption Icon={DraftsIcon} title="Save Items" />
-         <SidebarOption Icon={BookmarkBorderIcon} title="Channel Browser" /> */}
-         {/* <hr />
-         <SidebarOption Icon={ExpandLessIcon} title="Show less" /> */}
-         <hr />
          <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
-
-         {/*Connect to db and list all Channel */}
          {
-            channels.map((channel) => (
+            channels.map(channel => (
                <SidebarOption title={channel.name} id={channel.id} />
             ))
          }
-      </div >
+      </div >  
    );
 }
 

@@ -10,7 +10,7 @@ import { useStateValue } from "./StateProvider";
 
 
 function Chat({ toggle }) {
-   const { roomId } = useParams(); //useParams is React hook
+   const { roomId } = useParams();
    const [roomDetails,setRoomDetails] = useState(null);
    const [roomMessages,setRoomMessages] = useState([]);
    const [{ user },dispatch] = useStateValue();
@@ -21,30 +21,28 @@ function Chat({ toggle }) {
       if (roomId) {
          db.collection("rooms")
             .doc(roomId)
-            .onSnapshot((snapshot) => {
+            .onSnapshot(snapshot => {
                setRoomDetails(snapshot.data());
             });
       }
       db.collection("rooms")
          .doc(roomId)
          .collection("messages")
-         .orderBy("timestamp","asc")
+         .orderBy("timestamp","desc")
          .onSnapshot((snapshot) =>
-            setRoomMessages(snapshot.docs.map((doc) => ({
+            setRoomMessages(snapshot.docs.map(doc => ({
                id: doc.id,
                data: doc.data(),
                displayName: displayName,
                roomId: roomId
             })
+               
             )));
    },[roomId]);
-   console.log(roomDetails);
-   console.log("Message >>>>",roomMessages);
 
    return (
 
-      < div className={`chat  ${toggle && "library-active"}`
-      } >
+      < div className={`chat  ${toggle && "library-active"}`} >
          {console.log("User displayname",displayName)}
 
          <div className="chat__header">
@@ -52,6 +50,7 @@ function Chat({ toggle }) {
                <h4 className="chat__channelName">
                   <strong>#{roomDetails?.name}</strong>                  <StarBorderOutlinedIcon />
                </h4>
+
             </div>
 
             <div className="chat__headerRight">
@@ -62,6 +61,7 @@ function Chat({ toggle }) {
          </div>
 
          <div className="chat__message">
+            
             {roomMessages.map(({ data: { message,timestamp,user,userImage,image },id,displayName,roomId }) => (
                <Message
                   message={message}
@@ -75,7 +75,12 @@ function Chat({ toggle }) {
                />
             ))}
          </div>
-         <ChatInput channelName={roomDetails?.name} channelId={roomId} />
+
+         <ChatInput
+            channelName={roomDetails?.name}
+            channelId={roomId}
+            toogle={toggle}
+         />
       </div >
    );
 }

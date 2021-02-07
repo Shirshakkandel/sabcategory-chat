@@ -1,5 +1,4 @@
 import React,{ useEffect,useState } from "react";
-
 import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -22,9 +21,16 @@ function App() {
 
    const [toggle,setToggle] = useState(toggle1)
 
+   const logoutHandler = () => {
+      auth.signOut().then(() => {
+         dispatch({
+            type: "SET_USER",
+            user: null,
+         });
+      })
+   }
 
    useEffect(() => {
-
       const unsubscribe = auth.onAuthStateChanged((authUser) => {
          if (authUser) {
             dispatch({
@@ -48,12 +54,12 @@ function App() {
    return (
       <div className="app ">
          <Router>
-            {/* Header */}
             {!user ? (
                <Login />
             ) : (
                   <>
-                     <Header setToggle={setToggle} toggle={toggle} />
+                     <Header setToggle={setToggle} toggle={toggle} logoutHandler={logoutHandler} />
+
                      <div className="app__body">
                         <Sidebar toggle={toggle} />
                         <Switch>

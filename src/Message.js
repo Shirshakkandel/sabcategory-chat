@@ -9,6 +9,7 @@ function Message({ message,timestamp,user,userImage,displayName,id,roomId,image 
 
    }
    return (
+      
       <div className="message">
          <img src={userImage} alt="" />
          <div className="message__info">

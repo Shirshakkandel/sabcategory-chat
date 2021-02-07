@@ -3,6 +3,7 @@
    align-items: top;
    margin: 10px;
    justify-items: center;
+   padding: 10px;
 }
 .message>img {
    height: 50px;
@@ -17,14 +18,16 @@
    font-weight: 300;
    font-size: 13px;
 }
+
 .message>.message__info>p {
    margin-top: 0px;
 }
-/* mobile view */
 
+/* mobile view */
 .image{
    height: 90%;
    width: 90%;
+   margin-bottom: 40px;
 }
 
 @media (max-width: 780px) {
@@ -36,3 +39,4 @@
       width: 30px;
    }
 }
+
