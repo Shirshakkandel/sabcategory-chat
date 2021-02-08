@@ -1,17 +1,17 @@
 .sidebar {
     color: white;
-    position:fixed;
-    top: 0vh;
+    position:absolute;
+    top: 9vh;
     left: 0;
     width: 30%;
-    height: 100%;
+    height: 110vh;
     background-color: var(--slack-color);
     border-top: 1px solid #49274b;
     max-width: 280px;
     padding-right: 4px;
     transform: translateX(-100%);
     opacity:0;
-    overflow:visible;
+    overflow:scroll;
 
     /* position:fixed;
     top: 0;
